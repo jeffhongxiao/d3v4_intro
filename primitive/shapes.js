@@ -23,8 +23,8 @@ function chartFactory() {
 }
 
 var xScale = d3.scaleLinear()
-  .domain([0, 10])
-  .range([0, 500]);
+  .domain([0, 1])
+  .range([0, 50]);
 
 var yScale = d3.scaleLinear()
   .domain([-1, 1])
@@ -37,14 +37,23 @@ var line = d3.line()
 var sineData = d3.range(0, 10)
   .map(function(k) {
     var x = 0.5 * k * Math.PI;
+    // console.log(x, Math.sin(x));
     return [x, Math.sin(x)];
   });
+
+console.log(sineData);
 
 var chart = chartFactory();
 chart.container.append('path')
   .datum(sineData)
-//  .attr('d', line)
-  .attr('d', line.curve(d3.curveBasisOpen))
+  .attr('d', line)
   .attr('stroke', 'steelblue')
+  .attr('stroke-width', 2)
+  .attr('fill', 'none');
+
+chart.container.append('path')
+  .datum(sineData)
+  .attr('d', line.curve(d3.curveBasisOpen))
+  .attr('stroke', 'lightgreen')
   .attr('stroke-width', 2)
   .attr('fill', 'none');
