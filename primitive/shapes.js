@@ -1,10 +1,10 @@
 var xScale = d3.scaleLinear()
-  .range([0, 500])
-  .domain([0, 500]);
+  .domain([0, 10])
+  .range([0, 500]);
 
 var yScale = d3.scaleLinear()
-  .range([0, 200])
-  .domain([-1, 1]);
+  .domain([-1, 1])
+  .range([0, 200]);
 
 var line = d3.line()
   .x(function(d) {return xScale(d[0])})
