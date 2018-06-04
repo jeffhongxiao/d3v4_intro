@@ -1,3 +1,21 @@
+// ref: https://github.com/aendrew/learning-d3-v4
+function chartFactory() {
+  var chart = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+
+  chart.svg = d3.select('body')
+    .append('svg')
+    .attr('width', chart.width)
+    .attr('height', chart.height)
+    // .attr('stroke', 'steelblue')
+    // .attr('stroke-width', 2);
+  chart.container = chart.svg.append('g')
+
+  return chart;
+}
+
 var xScale = d3.scaleLinear()
   .domain([0, 10])
   .range([0, 500]);
@@ -16,8 +34,8 @@ var sineData = d3.range(0, 10)
     return [x, Math.sin(x)];
   });
 
-var g = d3.select('#svg').append('g');
-g.append('path')
+var chart = chartFactory();
+chart.container.append('path')
   .datum(sineData)
 //  .attr('d', line)
   .attr('d', line.curve(d3.curveBasisOpen))
