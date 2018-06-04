@@ -11,12 +11,12 @@ function chartFactory() {
 
   chart.container = chart.svg.append('g');
   chart.container.append('rect')
-    .attr('x', 100)
-    .attr('y', 100)
-    .attr('width', 100)
-    .attr('height', 100)
-    .attr('fill', 'white')
-    .attr("stroke", "steelblue")
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('width', chart.width)
+    .attr('height', chart.height)
+    .attr('fill', 'none')
+    .attr("stroke", "orange")
     .attr("stroke-width", 2);
 
   return chart;
