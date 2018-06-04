@@ -57,3 +57,14 @@ chart.container.append('path')
   .attr('stroke', 'lightgreen')
   .attr('stroke-width', 2)
   .attr('fill', 'none');
+
+var lineOfNumber = d3.line()
+  .x(100)
+  .y(200);
+
+// this is not visible in the svg
+chart.container.append('path')
+  .datum(sineData)
+  .attr('d', lineOfNumber)
+  .attr('stroke', 'red')
+  .attr('stroke-width', 5);
