@@ -5,13 +5,19 @@ function chartFactory() {
     height: window.innerHeight,
   };
 
-  chart.svg = d3.select('body')
-    .append('svg')
-    .attr('width', chart.width)
-    .attr('height', chart.height)
-    // .attr('stroke', 'steelblue')
-    // .attr('stroke-width', 2);
-  chart.container = chart.svg.append('g')
+  chart.svg = d3.select("body").append("svg")
+    .attr("width", chart.width)
+    .attr("height", chart.height);
+
+  chart.container = chart.svg.append('g');
+  chart.container.append('rect')
+    .attr('x', 100)
+    .attr('y', 100)
+    .attr('width', 100)
+    .attr('height', 100)
+    .attr('fill', 'white')
+    .attr("stroke", "steelblue")
+    .attr("stroke-width", 2);
 
   return chart;
 }
