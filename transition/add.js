@@ -1,5 +1,5 @@
-var rect = d3.select('rect');
-rect.style("fill", "red");
-
-var t = d3.transition().duration(5000);
-rect.transition(t).style("fill", "blue");
+d3.select("rect")
+  .style("fill", "orange")
+  .transition()
+  .duration(3000)
+  .style("fill", "blue");
