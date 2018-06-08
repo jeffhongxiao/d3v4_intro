@@ -1,5 +1,5 @@
 
-if (false) {
+if (true) {
   // this transition will be stopped
   d3.select("rect")
     .transition()
@@ -13,7 +13,7 @@ if (false) {
     .style("fill", "green");
 }
 
-if (false) {
+if (true) {
   // add a new transition after an existing one
   d3.select("circle")
     .transition()
