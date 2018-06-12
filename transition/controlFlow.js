@@ -1,18 +1,19 @@
-function firstName(selection, name) {
-  selection.attr('first-name', name);
+function fillColor(transition, color) {
+  transition.style('fill', color);
 }
 
-function lastName(selection, name) {
-  selection.attr('last-name', name)
-}
+var t = d3
+  .select("rect")
+  .transition()
+  .duration(2000);
 
-var useOldWay = false;
-// old way
-if (useOldWay) {
-  firstName(d3.selectAll('div'), 'Old');
-  lastName(d3.selectAll('div'), 'Way');
+var useCallFunction = true;
+
+if (useCallFunction) {
+  t.call(fillColor, "orange").call(fillColor, "yellow");
 }
 else {
-  // new way
-  d3.selectall('div').call(firstName, 'New').call(lastName, 'Way');
+  fillColor(t, "green");
+  fillColor(t, "blue");
 }
+
