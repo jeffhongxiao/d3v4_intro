@@ -71,6 +71,9 @@
           .on('start', function() {
             console.log('start event');
           })
+          .on('brush', function() {
+            console.log('brush event');
+          })
           .on("end", brushended));
 
       function brushended() {
