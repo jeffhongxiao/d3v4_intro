@@ -22,9 +22,9 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script>
 
-    var margin = { top: 200, right: 40, bottom: 200, left: 40 },
+    var margin = { top: 10, right: 40, bottom: 10, left: 40 },
       width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+      height = 100 - margin.top - margin.bottom;
 
     var x = d3.scaleTime()
       .domain([new Date(2013, 7, 1), new Date(2013, 7, 15) - 1])
@@ -38,25 +38,29 @@
 
     if (true) {
       // axis of dates
+      var axis = d3.axisBottom(x)
+        .ticks(d3.timeHour, 12)
+        .tickSize(-height)
+        .tickFormat(function () { return null; });
+
       svg.append("g")
         .attr("class", "axis axis--grid")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)
-          .ticks(d3.timeHour, 12)
-          .tickSize(-height)
-          .tickFormat(function () { return null; }))
+        .call(axis)
         .selectAll(".tick")
         .classed("tick--minor", function (d) { return d.getHours(); });
     }
 
     // axis text of dates
     if (false) {
+      var axis = d3.axisBottom(x)
+        .ticks(d3.timeDay)
+        .tickPadding(0);
+
       svg.append("g")
         .attr("class", "axis axis--x")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x)
-          .ticks(d3.timeDay)
-          .tickPadding(0))
+        .call(axis)
         .attr("text-anchor", null)
         .selectAll("text")
         .attr("x", 6);
@@ -64,17 +68,19 @@
 
     // brushX
     if (true) {
+      var brush = d3.brushX()
+        .extent([[0, 0], [width, height]])
+        .on('start', function () {
+          console.log('start event');
+        })
+        .on('brush', function () {
+          console.log('brush event');
+        })
+        .on("end", brushended);
+
       svg.append("g")
         .attr("class", "brush")
-        .call(d3.brushX()
-          .extent([[0, 0], [width, height]])
-          .on('start', function() {
-            console.log('start event');
-          })
-          .on('brush', function() {
-            console.log('brush event');
-          })
-          .on("end", brushended));
+        .call(brush);
 
       function brushended() {
         console.log('end event');
