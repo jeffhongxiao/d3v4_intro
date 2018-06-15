@@ -87,6 +87,10 @@
 
         if (!d3.event.sourceEvent) return; // Only transition after input.
         if (!d3.event.selection) return; // Ignore empty selections.
+
+        // ref: https://stackoverflow.com/a/39233835/3380951
+        var bs = d3.brushSelection(d3.select('.brush').node());
+        console.log(bs);
       }
 
     }
