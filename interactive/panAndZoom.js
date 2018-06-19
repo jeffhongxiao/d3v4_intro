@@ -1,10 +1,5 @@
 var svg = d3.select('svg');
-
-var circle = svg.append('circle')
-    .attr('cx', 20)
-    .attr('cy', 20)
-    .attr('r', 50)
-    .style('fill', 'tan');
+var circle = svg.select('circle');
 
 var zoomHandler = d3.zoom()
   .on("zoom", function () {
