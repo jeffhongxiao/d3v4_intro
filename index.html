@@ -3,14 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>intro to d3 (v4)</title>
+
+  <style>
+    body {
+      margin: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
   </head>
   <body>
     <script src="https://d3js.org/d3.v4.js"></script>
 
     <svg>
-      <rect x="0" y="0" width="100" height="100"></rect>
+      <g>
+        <circle cx="0" cy="0" r="50" style="fill: tan;"></circle>
+      </g>
     </svg>
 
-    <script src="interactive/custom.js"></script>
+    <script src="interactive/panAndZoom.js"></script>
   </body>
 </html>
