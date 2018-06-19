@@ -1,5 +1,5 @@
 var svg = d3.select('svg');
-var circle = svg.select('circle');
+var circle = svg.select('circle#mycircle');
 
 var zoomHandler = d3.zoom()
   .on("zoom", function () {
