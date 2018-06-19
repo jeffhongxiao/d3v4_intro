@@ -1,12 +1,12 @@
 var svg = d3.select('svg');
-var circle = svg.select('circle#mycircle');
+var circles = svg.selectAll('circle');
 
 var zoomHandler = d3.zoom()
   .on("zoom", function () {
-    circle.attr("transform", d3.event.transform);
+    circles.attr("transform", d3.event.transform);
   });
 
 // MUST BE: svg
-// CANNOT BE: circle
+// CANNOT BE: circles
 svg.call(zoomHandler);
 // zoomHandler(svg);
