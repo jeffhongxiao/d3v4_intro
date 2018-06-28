@@ -8,6 +8,7 @@ console.log(foo.precision());
 
 // REF: https://bl.ocks.org/mbostock/3757110
 // SEE ALSO: http://d3indepth.com/geographic/
+// jsfiddle: https://jsfiddle.net/jeffxiao/4wmyLeqh/18/
 
 var svg = d3.select("svg");
 
