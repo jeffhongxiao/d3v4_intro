@@ -3,20 +3,30 @@ var foo = d3.geoGraticule();
 console.log(typeof foo);
 console.log(typeof foo());
 
+foo.precision(24);  // default: 2.5
+console.log(foo.precision());
 
 // REF: https://bl.ocks.org/mbostock/3757110
+// SEE ALSO: http://d3indepth.com/geographic/
 
 var svg = d3.select("svg");
-var width = +svg.attr("width");
-var height = +svg.attr("height");
 
-var projection = d3
-  .geoAzimuthalEquidistant()
-  .scale(150)
-  .translate([width / 2, height / 2])
-  .rotate([122.4194, -37.7749])
-  .clipAngle(180 - 1e-3)
-  .precision(0.1);
+// TODO: change flag to change projection
+var useAE = true;
+var projection = d3.geoMercator();
+if (useAE) {
+  var width = +svg.attr("width");
+  var height = +svg.attr("height");
+
+  projection = d3
+    .geoAzimuthalEquidistant()
+    .scale(150)
+    .translate([width / 2, height / 2])
+    .rotate([122.4194, -37.7749])
+    .clipAngle(180 - 1e-3)
+    .precision(0.1);
+// var path = d3.geoPath().projection(projection);
+}
 
 var path = d3.geoPath().projection(projection);
 
