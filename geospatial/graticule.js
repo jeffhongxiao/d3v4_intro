@@ -26,7 +26,6 @@ if (useAE) {
     .rotate([122.4194, -37.7749])
     .clipAngle(180 - 1e-3)
     .precision(0.1);
-// var path = d3.geoPath().projection(projection);
 }
 
 var path = d3.geoPath().projection(projection);
